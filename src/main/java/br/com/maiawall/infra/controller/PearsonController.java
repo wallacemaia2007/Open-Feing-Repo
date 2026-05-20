@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.maiawall.application.dto.AdressDTO;
 import br.com.maiawall.application.useCase.AllPearsonsUseCase;
 import br.com.maiawall.application.useCase.CreatePearsonUseCase;
 import br.com.maiawall.application.useCase.DeletePearsonUseCase;
@@ -20,7 +21,6 @@ import br.com.maiawall.application.useCase.PearsonByIdUseCase;
 import br.com.maiawall.application.useCase.UpdatePearsonUseCase;
 import br.com.maiawall.infra.controller.request.CreatePearsonRequestDTO;
 import br.com.maiawall.infra.controller.request.UpdatePearsonRequestDTO;
-import br.com.maiawall.infra.controller.response.AddressResponseDTO;
 import br.com.maiawall.infra.controller.response.PearsonResponseDTO;
 import jakarta.validation.Valid;
 
@@ -62,7 +62,7 @@ public class PearsonController {
     }
 
     @GetMapping("/{id}/adress")
-    public ResponseEntity<AddressResponseDTO> getAdressByPearsonId(@PathVariable Long id) {
+    public ResponseEntity<AdressDTO> getAdressByPearsonId(@PathVariable Long id) {
         return ResponseEntity.ok().body(pearsonAdressByIdUseCase.execute(id));
     }
 

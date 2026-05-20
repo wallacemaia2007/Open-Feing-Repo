@@ -2,8 +2,8 @@ package br.com.maiawall.application.useCase;
 
 import org.springframework.stereotype.Service;
 
+import br.com.maiawall.application.dto.AdressDTO;
 import br.com.maiawall.infra.client.ViaCepClient;
-import br.com.maiawall.infra.controller.response.AddressResponseDTO;
 
 @Service
 public class PearsonAdressByIdUseCase {
@@ -16,13 +16,13 @@ public class PearsonAdressByIdUseCase {
         this.viaCepClient = viaCepClient;
     }
 
-    public AddressResponseDTO execute(Long id) {
+    public AdressDTO execute(Long id) {
 
         var pearson = pearsonByIdUseCase.execute(id);
 
         var address = viaCepClient.getAddressByCep(pearson.cep());
 
-        return new AddressResponseDTO(
+        return new AdressDTO(
                 address.cep(),
                 address.logradouro(),
                 address.complemento(),

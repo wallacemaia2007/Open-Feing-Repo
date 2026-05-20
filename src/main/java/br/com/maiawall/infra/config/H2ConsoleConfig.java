@@ -1,18 +1,12 @@
 package br.com.maiawall.infra.config;
 
-import java.io.IOException;
-
-import jakarta.servlet.Filter;
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
-import jakarta.servlet.http.HttpServletResponse;
-
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
+
+import jakarta.servlet.Filter;
+import jakarta.servlet.http.HttpServletResponse;
 
 @Configuration
 public class H2ConsoleConfig {

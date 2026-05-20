@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import br.com.maiawall.application.dto.AdressDTO;
 
-@FeignClient(name = "viacep", url = "https://viacep.com.br/ws")
+@FeignClient(name = "viacep", url = "https://viacep.com.br/ws", fallbackFactory = ViaCepFactory.class)
 public interface ViaCepClient {
 
     @GetMapping("/{cep}/json/")
