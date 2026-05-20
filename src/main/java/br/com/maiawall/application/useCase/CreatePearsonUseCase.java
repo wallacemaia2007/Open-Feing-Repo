@@ -17,7 +17,7 @@ public class CreatePearsonUseCase {
     }
 
     public PearsonResponseDTO execute(CreatePearsonRequestDTO request) {
-        var pearson = new Pearson(null, request.name(), request.cep());
+        var pearson = new Pearson(null, request.name(), request.cep(), request.cpf(), request.email());
         pearsonRepo.save(pearson);
         return PearsonResponseDTO.toResponseDTO(pearson);
     }

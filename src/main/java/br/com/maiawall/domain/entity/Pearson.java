@@ -24,21 +24,23 @@ public class Pearson {
     @NotBlank(message = "Name is mandatory")
     private String name;
 
-    @CPF(message = "Invalid CPF")
+    // @CPF(message = "Invalid CPF")
     private String cpf;
 
-    @Email(message = "Invalid email")
+    // @Email(message = "Invalid email")
     private String email;
 
     @NotBlank(message = "CEP is mandatory")
     private String cep;
 
-    public Pearson(Long id, String name, String cep) {
+    public Pearson(Long id, String name, String cep, String cpf, String email) {
         if (id == null) {
             this.id = System.currentTimeMillis();
         }
         this.name = name;
         this.cep = cep;
+        this.cpf = cpf;
+        this.email = email;
     }
 
 }

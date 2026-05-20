@@ -17,7 +17,12 @@ public class ViaCepFactory implements FallbackFactory<ViaCepClient> {
         return new ViaCepClient() {
             @Override
             public AdressDTO getAddressByCep(String cep) {
-                if (cause instanceof FeignException && ((FeignException) cause).status() == 404) {
+                if (cause instanceof FeignException feignException && feignException.status() == 400) {
+                    System.out.println("CEP inválido informado para o ViaCEP.");
+                    return new AdressDTO(cep, "CEP Inválido", "", "", "", "");
+                }
+
+                if (cause instanceof FeignException feignException && feignException.status() == 404) {
                     System.out.println("CEP inexistente na base do ViaCEP.");
                     return new AdressDTO(cep, "CEP Inexistente", "", "", "", "");
                 }

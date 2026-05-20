@@ -2,6 +2,8 @@
 
 Este repositório é um projeto de **estudo focado no uso do OpenFeign** para consumo de APIs externas dentro de uma aplicação Spring Boot. A API gerencia pessoas e busca seus endereços automaticamente via [ViaCEP](https://viacep.com.br).
 
+![Open Feign](img.png)
+
 ## O que é o OpenFeign?
 
 OpenFeign é um cliente HTTP declarativo do Spring Cloud. Em vez de escrever código boilerplate com `RestTemplate` ou `WebClient`, você define uma **interface Java** e o Feign cuida do resto.
