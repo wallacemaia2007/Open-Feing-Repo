@@ -18,18 +18,25 @@ public class UpdatePearsonUseCase {
     public PearsonResponseDTO execute(UpdatePearsonRequestDTO updatePearsonRequestDTO, Long id) {
         var pearson = pearsonRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Pearson not found"));
-        if (updatePearsonRequestDTO.name().isEmpty() && updatePearsonRequestDTO.cep().isEmpty()) {
+        if (updatePearsonRequestDTO.isEmpty()) {
             throw new RuntimeException("No data to update");
         }
-        if (updatePearsonRequestDTO.name().isPresent()) {
-            pearson.setName(updatePearsonRequestDTO.name().get());
+        if (updatePearsonRequestDTO.name() != null && !updatePearsonRequestDTO.name().isEmpty()) {
+            pearson.setName(updatePearsonRequestDTO.name());
         }
-        if (updatePearsonRequestDTO.cep().isPresent()) {
-            pearson.setCep(updatePearsonRequestDTO.cep().get());
+        if (updatePearsonRequestDTO.cep() != null && !updatePearsonRequestDTO.cep().isEmpty()) {
+            pearson.setCep(updatePearsonRequestDTO.cep());
+        }
+        if (updatePearsonRequestDTO.cpf() != null && !updatePearsonRequestDTO.cpf().isEmpty()) {
+            pearson.setCpf(updatePearsonRequestDTO.cpf());
+        }
+        if (updatePearsonRequestDTO.email() != null && !updatePearsonRequestDTO.email().isEmpty()) {
+            pearson.setEmail(updatePearsonRequestDTO.email());
         }
         pearsonRepo.save(pearson);
 
-        return new PearsonResponseDTO(pearson.getId(), pearson.getName(), pearson.getCep());
+        return new PearsonResponseDTO(pearson.getId(), pearson.getName(), pearson.getCpf(), pearson.getEmail(),
+                pearson.getCep());
     }
 
 }

@@ -18,7 +18,7 @@ public class PearsonByIdUseCase {
         var pearson = pearsonRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Pearson not found with id: " + id));
 
-        return new PearsonResponseDTO(pearson.getId(), pearson.getName(), pearson.getCep());
+        return new PearsonResponseDTO(pearson.getId(), pearson.getName(), pearson.getCpf(), pearson.getEmail(), pearson.getCep());
     }
 
 }

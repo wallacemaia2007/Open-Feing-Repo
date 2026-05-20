@@ -18,10 +18,11 @@ import br.com.maiawall.application.useCase.DeletePearsonUseCase;
 import br.com.maiawall.application.useCase.PearsonAdressByIdUseCase;
 import br.com.maiawall.application.useCase.PearsonByIdUseCase;
 import br.com.maiawall.application.useCase.UpdatePearsonUseCase;
-import br.com.maiawall.infra.controller.request.PearsonRequestDTO;
+import br.com.maiawall.infra.controller.request.CreatePearsonRequestDTO;
 import br.com.maiawall.infra.controller.request.UpdatePearsonRequestDTO;
 import br.com.maiawall.infra.controller.response.AddressResponseDTO;
 import br.com.maiawall.infra.controller.response.PearsonResponseDTO;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/pearson")
@@ -56,7 +57,7 @@ public class PearsonController {
     }
 
     @PostMapping("")
-    public ResponseEntity<PearsonResponseDTO> createPearson(@RequestBody PearsonRequestDTO request) {
+    public ResponseEntity<PearsonResponseDTO> createPearson(@Valid @RequestBody CreatePearsonRequestDTO request) {
         return ResponseEntity.ok().body(createPearsonUseCase.execute(request));
     }
 
@@ -67,7 +68,7 @@ public class PearsonController {
 
     @PatchMapping("/{id}")
     public ResponseEntity<PearsonResponseDTO> updatePearson(
-            @RequestBody UpdatePearsonRequestDTO updatePearsonRequestDTO, @PathVariable Long id) {
+            @Valid @RequestBody UpdatePearsonRequestDTO updatePearsonRequestDTO, @PathVariable Long id) {
         return ResponseEntity.ok().body(updatePearsonUseCase.execute(updatePearsonRequestDTO, id));
     }
 

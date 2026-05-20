@@ -18,7 +18,7 @@ public class AllPearsonsUseCase {
 
     public List<PearsonResponseDTO> execute() {
         return pearsonRepo.findAll().stream()
-                .map(pearson -> new PearsonResponseDTO(pearson.getId(), pearson.getName(), pearson.getCep()))
+                .map(pearson -> new PearsonResponseDTO(pearson.getId(), pearson.getName(), pearson.getCpf(), pearson.getEmail(), pearson.getCep()))
                 .toList();
 
     }
