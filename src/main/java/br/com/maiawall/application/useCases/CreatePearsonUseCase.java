@@ -1,0 +1,25 @@
+package br.com.maiawall.application.useCases;
+
+import org.springframework.stereotype.Service;
+
+import br.com.maiawall.domain.entity.Pearson;
+import br.com.maiawall.infra.controller.request.PearsonRequestDTO;
+import br.com.maiawall.infra.controller.response.PearsonResponseDTO;
+import br.com.maiawall.infra.repo.PersonRepo;
+
+@Service
+public class CreatePearsonUseCase {
+
+    private final PersonRepo pearsonRepo;
+
+    public CreatePearsonUseCase(PersonRepo pearsonRepo) {
+        this.pearsonRepo = pearsonRepo;
+    }
+
+    public PearsonResponseDTO execute(PearsonRequestDTO request) {
+        var pearson = new Pearson(null, request.name(), request.cep());
+        pearsonRepo.save(pearson);
+        return PearsonResponseDTO.toResponseDTO(pearson);
+    }
+
+}

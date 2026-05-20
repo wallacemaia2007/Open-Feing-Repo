@@ -1,0 +1,37 @@
+src/main/java/br/com/maiawall
+│
+├── MaiawallApplication.java (Classe principal do Spring Boot)
+│
+├── domain/                  # O CORAÇÃO: Regras de negócio puras
+│   ├── entity/
+│   │   └── Usuario.java     # Entidade de domínio (regras de negócio)
+│   ├── valueobject/
+│   │   └── Cpf.java         # Objeto de valor (validação de CPF)
+│   └── repository/
+│       └── UsuarioRepository.java # INTERFACE pura (contrato de banco)
+│
+├── application/             # O MAESTRO: Casos de uso e fluxos
+│   ├── usecase/
+│   │   ├── CriarUsuarioUseCase.java
+│   │   └── BuscarEnderecoUseCase.java
+│   ├── dto/
+│   │   ├── UsuarioRequestDTO.java
+│   │   ├── UsuarioResponseDTO.java
+│   │   └── ViaCepDTO.java   # DTO para receber dados do Feign
+│   └── mapper/
+│       └── UsuarioMapper.java # Converte DTO <-> Entidade
+│
+└── infra/                   # A TECNOLOGIA: Frameworks, Banco e Web
+    ├── controller/
+    │   └── UsuarioController.java # Endpoints HTTP Rest
+    ├── repository/
+    │   ├── SpringDataUsuarioRepository.java # A interface que estende JpaRepository
+    │   └── UsuarioRepositoryImpl.java       # Implementa a interface do 'domain' usando o Spring Data
+    ├── client/
+    │   ├── ViaCepClient.java        # Interface do OpenFeign
+    │   └── ViaCepClientFallback.java # Plano B do Feign (se o ViaCep cair)
+    ├── config/
+    │   └── FeignConfig.java         # Configurações do Spring/Feign
+    └── exception/
+        ├── GlobalExceptionHandler.java # Seu tratador de erros global
+        └── ErroResponseDTO.java     # Corpo do erro padrão da API
