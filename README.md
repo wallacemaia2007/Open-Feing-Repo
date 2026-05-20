@@ -1,4 +1,4 @@
-# Maiawall — Exemplo prático de OpenFeign com Spring Boot
+# OpenFeign Library — Exemplo prático de OpenFeign com Spring Boot
 
 Este repositório é um projeto de **estudo focado no uso do OpenFeign** para consumo de APIs externas dentro de uma aplicação Spring Boot. A API gerencia pessoas e busca seus endereços automaticamente via [ViaCEP](https://viacep.com.br).
 
