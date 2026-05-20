@@ -1,4 +1,4 @@
-package br.com.maiawall.infra.repo;
+package br.com.maiawall.infra.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

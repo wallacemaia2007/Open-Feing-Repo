@@ -1,10 +1,10 @@
-package br.com.maiawall.application.useCases;
+package br.com.maiawall.application.useCase;
 
 import org.springframework.stereotype.Service;
 
 import br.com.maiawall.infra.controller.request.UpdatePearsonRequestDTO;
 import br.com.maiawall.infra.controller.response.PearsonResponseDTO;
-import br.com.maiawall.infra.repo.PersonRepo;
+import br.com.maiawall.infra.repository.PersonRepo;
 
 @Service
 public class UpdatePearsonUseCase {

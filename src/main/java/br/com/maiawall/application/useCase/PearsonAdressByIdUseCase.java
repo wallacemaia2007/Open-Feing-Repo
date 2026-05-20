@@ -1,4 +1,4 @@
-package br.com.maiawall.application.useCases;
+package br.com.maiawall.application.useCase;
 
 import org.springframework.stereotype.Service;
 

@@ -10,10 +10,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.maiawall.application.useCases.*;
+import br.com.maiawall.application.useCase.AllPearsonsUseCase;
+import br.com.maiawall.application.useCase.CreatePearsonUseCase;
+import br.com.maiawall.application.useCase.DeletePearsonUseCase;
+import br.com.maiawall.application.useCase.PearsonAdressByIdUseCase;
+import br.com.maiawall.application.useCase.PearsonByIdUseCase;
+import br.com.maiawall.application.useCase.UpdatePearsonUseCase;
 import br.com.maiawall.infra.controller.request.PearsonRequestDTO;
 import br.com.maiawall.infra.controller.request.UpdatePearsonRequestDTO;
 import br.com.maiawall.infra.controller.response.AddressResponseDTO;

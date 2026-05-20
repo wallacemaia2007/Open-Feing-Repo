@@ -1,11 +1,11 @@
-package br.com.maiawall.application.useCases;
+package br.com.maiawall.application.useCase;
 
 import org.springframework.stereotype.Service;
 
 import br.com.maiawall.domain.entity.Pearson;
 import br.com.maiawall.infra.controller.request.PearsonRequestDTO;
 import br.com.maiawall.infra.controller.response.PearsonResponseDTO;
-import br.com.maiawall.infra.repo.PersonRepo;
+import br.com.maiawall.infra.repository.PersonRepo;
 
 @Service
 public class CreatePearsonUseCase {
